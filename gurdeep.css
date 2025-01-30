@@ -1,0 +1,14 @@
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 25%;
+  }
+
+  .profile {
+    font-weight: bold;
+  }
+
+  tr {
+    margin-bottom: 125%;
+  }
