@@ -1,0 +1,19 @@
+* {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+  .section-title {
+    color:blue; font-size: small;
+  }
+  section p {
+    font-style: italic;
+    color: aqua;
+  }
+  p {
+    color: orange
+  }
+  #myMenu {
+    color:green
+  }
+  .green{
+    color: green;
+  }
