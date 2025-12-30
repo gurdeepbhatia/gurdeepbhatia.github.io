@@ -1,1 +1,0 @@
-# gurdeepbhatia.github.io
