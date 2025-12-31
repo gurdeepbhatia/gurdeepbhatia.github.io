@@ -4,6 +4,14 @@
     box-sizing: border-box;
 }
 
+blockquote {
+    border-left: 4px solid #ccc;
+    padding-left: 16px;
+    margin-left: 0;
+    color: #555;
+    font-style: italic;
+}
+
 body {
     font-family: Arial, sans-serif;
     display: flex;
@@ -115,8 +123,8 @@ nav button.child.active {
 
 .content-wrapper {
     max-width: 900px;
-    margin: 0 auto;
-    padding: 40px;
+    margin: 2%;
+    padding: 20px;
 }
 
 .content-wrapper h1 {
