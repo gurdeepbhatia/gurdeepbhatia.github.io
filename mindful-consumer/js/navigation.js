@@ -1,5 +1,6 @@
 const navigationData = [
     { id: 'introduction', label: 'INTRODUCTION', children: [] },
+    { id: 'body-composition', label: 'BODY COMPOSITION', children: [] },
     { 
         id: 'macronutrients', 
         label: 'MACRONUTRIENTS', 

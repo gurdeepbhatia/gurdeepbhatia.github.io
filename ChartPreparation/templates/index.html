@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chart Preparation Utility</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<div class="container">
+
+    <h1>Chart Preparation Utility</h1>
+
+    <div class="upload-section">
+        <label for="csvFile">Upload CSV File (Required):</label>
+        <input type="file" id="csvFile" accept=".csv" onchange="handleFileSelect(event)">
+        <p id="fileStatus"></p>
+    </div>
+
+    <div class="button-section">
+        <button id="dailyBtn" onclick="prepareChart('daily')" disabled>
+            Prepare Daily Chart
+        </button>
+
+        <button id="marketBtn" onclick="prepareChart('market')" disabled>
+            Prepare Index Chart
+        </button>
+    </div>
+
+    <p id="status"></p>
+
+</div>
+
+<div class="version-info" id="versionInfo">
+    Version <span id="versionNumber">...</span>
+</div>
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+</html>
