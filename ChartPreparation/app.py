@@ -38,10 +38,10 @@ def update_activity():
 def monitor_browser_connection():
     """Monitor browser connections and shutdown if inactive"""
     global last_activity_time
-    inactivity_timeout = 5  # seconds
+    inactivity_timeout = 1800  # seconds (30 minutes)
     
     print("Browser connection monitor started...")
-    print("Server will shutdown 5 seconds after browser is closed.")
+    print("Server will shutdown 30 minutes after browser is closed.")
     
     while not shutdown_event.is_set():
         time.sleep(1)
@@ -49,7 +49,7 @@ def monitor_browser_connection():
         # Check if inactive for too long
         inactive_time = time.time() - last_activity_time
         if inactive_time > inactivity_timeout:
-            print(f"\nNo browser activity detected for {inactivity_timeout} seconds.")
+            print(f"\nNo browser activity detected for 30 minutes.")
             print("Shutting down server...")
             shutdown_event.set()
             os._exit(0)
@@ -127,7 +127,7 @@ def generate_chart(chart_type):
 def open_browser():
     """Open browser after a short delay"""
     time.sleep(1.5)
-    webbrowser.open('http://127.0.0.1:5000')
+    webbrowser.open('http://127.0.0.1:5001')
 
 
 if __name__ == "__main__":
@@ -135,7 +135,7 @@ if __name__ == "__main__":
     print("Chart Preparation Utility - Version " + VERSION)
     print("=" * 60)
     print("\nStarting server...")
-    print("Server URL: http://127.0.0.1:5000")
+    print("Server URL: http://127.0.0.1:5001")
     print("\nBrowser will open automatically...")
     print("Close the browser when done - server will shutdown automatically.")
     print("\nPress Ctrl+C to force quit if needed.")
@@ -152,7 +152,14 @@ if __name__ == "__main__":
     
     # Run Flask app (disable debug mode for production)
     try:
-        app.run(host='127.0.0.1', port=5000, debug=False, use_reloader=False)
+        app.run(host='127.0.0.1', port=5001, debug=False, use_reloader=False)
     except KeyboardInterrupt:
         print("\nShutting down server...")
         sys.exit(0)
+    except OSError as e:
+        print(f"\nERROR: Failed to start server - {e}")
+        print("Port 5001 may already be in use by another application.")
+        sys.exit(1)
+    except Exception as e:
+        print(f"\nERROR: Unexpected error - {e}")
+        sys.exit(1)
