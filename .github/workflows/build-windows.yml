@@ -35,4 +35,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: ChartPreparation-Windows
-          path: dist/
+          path: ChartPreparation/dist/
