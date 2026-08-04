@@ -1,5 +1,13 @@
 # -*- mode: python ; coding: utf-8 -*-
 
+import sys
+import os
+
+# Add current directory to Python path to find config module
+spec_dir = os.path.dirname(os.path.abspath(SPECPATH))
+if spec_dir not in sys.path:
+    sys.path.insert(0, spec_dir)
+
 from PyInstaller.utils.hooks import collect_data_files
 from config import VERSION
 
